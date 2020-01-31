@@ -1,0 +1,289 @@
+/* Css du header */
+body {
+    background-color: lightyellow;
+}
+#logo {
+    height: 150px;
+}
+
+#divHeader {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+
+    height: 150px;
+
+}
+
+#contentInfoHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    height: 100px;
+}
+
+#descriptionLogo {
+    position: relative;
+    top: -25%;
+}
+
+h1, p, h3 {
+    font-family: 'Baloo', cursive;
+
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+
+
+/* Css du slider */
+
+#sliderContainer {
+    margin: auto;
+    margin-top: 1%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    border: saddlebrown 2px solid;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+#imgConteneur {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+#imgSlider {
+    border-radius: 5px;
+    border: 1px saddlebrown solid;
+}
+
+#descriptionConteneur {
+    width: 960px;
+    height: 270px;
+    position: absolute;
+    top: 2px;
+    margin-left: 1px;
+    opacity: 0;
+}
+
+#descriptionConteneur:hover {
+    opacity: 1;
+}
+
+
+
+#descriptionSlider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    margin-top: 220px;
+    height: 50px;
+    color: white;
+    background-color: rgba(39, 48, 48, 0.8);
+}
+
+#descriptionSlider:hover {
+    opacity: 1;
+}
+
+
+#barreSlider {
+    width: 98%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: saddlebrown 1px solid;
+    border-bottom: 0px;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 0%;
+}
+
+.fa-arrow-left
+{
+    color: black;
+    margin-left: 1%;
+}
+
+.fa-arrow-right
+{
+    color: black;
+    margin-right: 1%;
+    
+}
+
+#pause-Play {
+    color: black;
+}
+ /* Css de la map */
+
+#sectionMap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    height: 500px; 
+    border-radius: 8px;
+}
+
+#map
+{ 
+    height: 98%; 
+    width: 90%;
+    position: relative;
+    margin:auto;
+    z-index: 2;
+    border:2px saddlebrown solid;
+    border-radius: 15px;
+}
+
+#panelReservation {
+    background-color: whitesmoke;
+    border: 1px  saddlebrown solid;
+    border-radius: 8px;
+    z-index: 5;
+    position: relative;
+    width: 25%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin: auto;
+
+}
+#divInfoStation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px  rgba(39, 48, 48, 0.5) solid;
+
+}
+
+#divInfoStation p {
+    margin: 0;
+
+}
+
+#formulaireReservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+#titreFormulaireReservation {
+    text-align: center;
+
+}
+
+.prenom {
+    font-family:'Baloo', cursive;
+}
+
+.nom {
+    font-family: 'Baloo', cursive;
+}
+
+.infoRequise {
+    visibility: hidden;
+    font-size: 0.8em;
+    color: red;
+    height: 1%;
+    text-align: center;
+    margin-top: -0.7%;
+}
+
+
+button {
+    font-family: 'Baloo', cursive;
+    width: 50%;
+    align-self: center;
+    text-align: center;
+}
+
+    /*CSS du panel contenant le canvas */
+
+
+#panelCanvas {
+    display: none;
+    background-color: whitesmoke;
+    border: 1px  saddlebrown solid;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    margin: auto;
+    height: 98%;
+    
+}
+
+#titreCanvas {
+    margin-top: -20%;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#texteCanvas {
+    width: 85%;
+    text-align: center;
+    margin-top: -5%;
+}
+
+
+
+#reservationEnCours {
+    display: none;
+    margin:auto;
+    margin-top: 1%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    background-color: whitesmoke;
+    border: saddlebrown 1px solid;
+    border-radius: 8px;
+    width: 60%;
+}
+
+#annulerReservation {
+    margin-left: 3%;
+}
+#annulerReservation:hover {
+    text-decoration: underline;
+}
+
+
+#signature {
+    background-color: white;
+    border: 1px saddlebrown solid;
+}
+
+#signatureInvalide {
+    visibility: hidden;
+    font-size: 0.8em;
+    height: 1%;
+    color: red;
+}
+
+
+

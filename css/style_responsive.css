@@ -1,0 +1,107 @@
+@media all and (max-width: 1360px) {
+
+
+
+
+  #panelReservation {
+    width: 40%;
+    margin-left: 2%;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  h1 {
+    font-size: 3em;
+  }
+  h3 {
+    font-size: 2.5em;
+  }
+  label {
+    font-size: 1.5em;
+  }
+  button {
+    font-size: 1.5em;
+  }
+  input {
+    height: 40px;
+  }
+  p {
+    font-size: 2em;
+  }
+
+  #divHeader {
+    height: 300px;
+    align-items: center;
+  }
+
+  #sliderContainer {
+    border: 0px;
+    width: 100%;
+  }
+
+  #descriptionConteneur {
+    opacity: 1;
+  }
+
+  #barreSlider {
+    height: 55px;
+    margin-top: 1%;
+    border: 2px saddlebrown solid;
+  }
+
+  .fa-arrow-left {
+    color: saddlebrown;
+    font-size: 45px;
+    margin-left: 1%;
+  }
+
+  .fa-arrow-right {
+    color: saddlebrown;
+    margin-right: 1%;
+    font-size: 45px;
+  }
+
+  #pause-Play {
+    color: saddlebrown;
+    font-size: 45px;
+  }
+
+  #sectionMap {
+    position: relative;
+    margin-top: 1%;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #map {
+    width: 95%;
+    height: 400px;
+  }
+
+  #panelReservation {
+    width: 95%;
+    height: 100%;
+    position: relative;
+    padding-bottom: 1%;
+    margin-top: 1%;
+  }
+
+  #panelCanvas {
+    width: 95%;
+    height: 100%;
+    margin-top: 1%;
+    padding-bottom: 1%;
+  }
+
+  #titreCanvas {
+    margin-top: 0;
+  }
+
+  #texteCanvas {
+    margin-top:0;
+  }
+
+  #reservationEnCours {
+    width: 95%;
+  }
+}
