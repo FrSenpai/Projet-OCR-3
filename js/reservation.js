@@ -1,5 +1,4 @@
 class Reservation {
-
     // Variables DOM
     prenomElt = document.getElementById("prenom");
     nomElt = document.getElementById("nom");
@@ -18,11 +17,10 @@ class Reservation {
 
     constructor() {
         this.initEvent();
-        
     }
 
     initEvent() {
-        // Afficher la div uniquement quand chargement ok
+        // Afficher la div du temps restant uniquement quand chargement ok
         window.addEventListener("load", (e) => {
             if (sessionStorage.getItem("minutes") && sessionStorage.getItem("secondes")) { // Si une réservation est déjà en cours, relance le timer.
                 timer.etatTimer = true;
@@ -31,7 +29,7 @@ class Reservation {
                 timer.etatTimer = false;
             }
         })
-        
+
         // Gestion des interactions de l'utilisateur.
         this.prenomElt.addEventListener("click", (e) => this.informationsConnu());
 
@@ -58,16 +56,15 @@ class Reservation {
             } else {
                 document.getElementById("signatureInvalide").style.visibility = "visible";
             }
-
         })
-            // annuler une réservation
+        // annuler une réservation
         this.annulerReservationElt.addEventListener("click", (e) => {
             timer.stopTimer();
         })
     }
-    
-    
-    
+
+
+
     informationsConnu() {
         // Si un prénom ou un nom ont été déjà envoyé, les inputs les prennent comme valeur
         if (localStorage.getItem("nom")) {
@@ -80,8 +77,6 @@ class Reservation {
 
     verifierInformations() {
         const regex = /[a-zA-ZÀ-ÿ-]+/;
-        // Limite de caractères
-
         // Si le prénom est syntaxiquement correct alors
         if (!regex.test(this.prenomElt.value)) {
             this.prenomOk = 0;

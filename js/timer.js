@@ -3,9 +3,7 @@ class Timer {
     secondes = 60;
     etatTimer = false;
 
-    constructor() {
-
-    }
+    constructor() {}
 
     timer() {
         // Si des données concernant une réservations sont présents, modifier les minutes & secondes selon celles-ci.
@@ -27,7 +25,6 @@ class Timer {
                 canvas.signatureOK = false;
                 this.etatTimer = false;
                 clearInterval(minuteur);
-
             } else if (this.secondes <= 0) {
                 this.minutes--;
                 this.secondes = 59;
@@ -51,7 +48,6 @@ class Timer {
     }
 
     stopTimer() {
-
         // On désactive et supprime la moindre donnée concernant une réservation + clean du canvas
         timer.etatTimer = false;
         reservation.boutonPanelCanvasElt.style.display = "flex";

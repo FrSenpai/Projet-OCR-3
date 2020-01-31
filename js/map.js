@@ -1,21 +1,16 @@
 class Map {
-    mapElt = document.getElementById("map")
+    mapElt = document.getElementById("map");
     reservationElt = document.getElementById("panelReservation");
     map = L.map('map').setView([43.60141, 1.44446], 16); // Définition de la map ainsi que sa position géo-graphique ([lat, lng] , zoom)
     etatPanel = false; 
     constructor() {
-
         this.chargementApi();
         this.afficherCarte();
         this.mapElt = document.getElementById("map");
-        
     }
-
 
     afficherCarte() {
         // Affichage de la carte via l'API Leaflet
-
-        // Markercluster à faire 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 40, 
@@ -58,20 +53,17 @@ class Map {
                 this.api = api;
                 this.affichageIcone();
             });
-
     }
 
     affichageIcone() {
-        // Affichage des icones des stations, TO-DO: icone verte si disponible, rouge si non disponible 
+        // Affichage des icones des stations
         const stations = this.api;
         const adresseElt = document.getElementById("adresseStation");
         const etatStationElt = document.getElementById("etatStation");
         const veloDispoElt = document.getElementById("veloDispoStations");
         const placeDispoElt = document.getElementById("placesDispoStations");
 
-
         stations.map(station => { 
-
             // Si la station est fermée, alors icone rouge, si ouvert & pas de velo alors orange, autre (open) vert
             if (station.status === "CLOSED") {
                 this.iconeMap = L.marker([station.position.lat, station.position.lng], {icon: this.iconeRouge}).addTo(this.map);
@@ -80,13 +72,10 @@ class Map {
             } else {
                 this.iconeMap = L.marker([station.position.lat, station.position.lng], {icon: this.iconeVerte}).addTo(this.map);
             }
-
             //Lors d'un clic, la map se réduit et une fenêtre d'informations apparait.
             this.iconeMap.addEventListener(`click`,  (e) => {
-
                 if (timer.etatTimer === true) {
                     alert("Vous devez d'abord annuler votre réservation en cours avant d'en refaire une autre.");
-
                 } else if (reservation.panelCanvasElt.style.display === "flex") {
                     reservation.panelCanvasElt.style.display = "none";
                     this.reservationElt.style.display = "flex";
@@ -102,20 +91,7 @@ class Map {
                 veloDispoElt.textContent = `Vélo(s) disponible(s) : ${station.available_bikes}`; 
                 placeDispoElt.textContent = `Place(s) disponible(s) : ${station.available_bike_stands}`;
                 }
-
-
-                
-
             } ); 
-
         });
-
-
-
-
     }
-
-
-
-
 }
