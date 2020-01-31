@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bike'n go</title>
+    <meta name="description" content="Réserver un vélo n'est plus un problème avec Bike'n Go ! Plus besoin de perdre plus de temps que nécessaire !">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="">
+    <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" media="(max-width: 1360px)" href="../css/style_responsive.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" 
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous" />
+</head>
+
+<body id="bloc-page">
+    <header>
+        <div id="divHeader">
+            <p>
+                <a href="../html/index.html"><img src="../media/logo.png" alt="Logo Bike'n Go !" id="logo"></a>
+            </p>
+            <div id="contentInfoHeader">
+                <h1> Bike'n Go !</h1>
+                <p id="descriptionLogo">Réservez votre velo en quelques clics !</p>
+            </div>
+            
+        </div>
+    </header>
+
+    <div id="sliderContainer">
+            <div id="imgConteneur">
+                <img id="imgSlider" src="../media/sliderbackground-0.jpg" alt="Slider n°0">
+                <div id="descriptionConteneur">
+                    <p id="descriptionSlider">Première étape : Cliquez sur la station de votre choix !</p>
+                </div>
+            </div>
+                
+                
+
+        <div id="barreSlider">
+            <i id="flecheGauche" class="fas fa-arrow-left"></i>
+            <i id=pause-Play class="far fa-pause-circle"></i>
+            <i id="flecheDroite" class="fas fa-arrow-right"></i>
+        </div>
+    </div>
+    
+    <section id="sectionMap">
+        
+        <div id="map"></div>
+
+        <div id="panelReservation"> <!-- Premier panel affiché lors du clic sur une icone -->
+            
+            <div id="divInfoStation">
+                <!-- Liste des informations sur la station -->
+                <h3 id="detailStation">Détails de la station</h3>
+                <p id="adresseStation">Adresse</p>
+                <p id="etatStation">Etat de la station</p>
+                <p id="veloDispoStations">Vélos disponibles</p>
+                <p id="placesDispoStations">Places disponibles</p>
+            </div>
+
+            <div id="formulaireReservation">
+                <h3 id="titreFormulaireReservation">Je veux réserver !</h3>
+            <!-- Formulaire à remplir afin de soumettre une réservation -->
+                <label class="prenom" for="prenom" id="labelPrenom">Votre prénom :</label>
+                <input class="prenom" id="prenom" name="prenom" type="text">
+                <p id="prenomRequis" class="infoRequise">Information requise !</p>
+                <label class = "nom" for="nom" id="labelNom">Votre nom :</label>
+                <input type="text" class="nom" name="nom" id="nom">
+                <p id="nomRequis" class="infoRequise">Information requise !</p>
+                <button  id="boutonReserver">Continuer</button>
+            </div>
+            
+        </div>
+            <!-- Faire ancre -->
+        <div id="panelCanvas">
+            <h3 id ="titreCanvas" >Il ne vous reste plus qu'une seule étape !</h3>
+            <p id="texteCanvas">Signez numériquement dans le cadre à votre disposition ci-dessous !</p>
+            <canvas id="signature" width="150" height="150">
+                <p>Désolé, la version de votre navigateur ne supporte pas Canvas.</p>
+            </canvas>
+            <p id="signatureInvalide">Veuillez signer numériquement.</p>
+            <button id="validationCanvas">Je valide ma réservation !</button>
+            
+        </div>
+
+        
+    </section>
+
+    <section>
+        <div id="reservationEnCours">
+            <p id="tempsRestant"></p>
+            <p id="annulerReservation">Je souhaite annuler ma réservation !</p>
+        </div>
+    </section>
+
+        
+    
+    
+
+
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+    <script src="../js/canvas.js"></script> <!-- Script gérant l'ajax -->
+    <script src="../js/map.js"></script> <!-- Script gérant la map -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/timer.js"></script> <!-- Script gérant le timer -->
+    <script src="../js/reservation.js"></script> <!-- Script gérant les réservations -->
+
+    <script src="../js/ajax.js"></script> <!-- Script gérant l'ajax -->
+    <script src="../js/slider.js"></script> <!-- Script gérant le slider -->
+    <script src="../js/script.js"></script> <!-- Script gérant les interactions -->
+    
+
+
+</body>
+
+</html>
