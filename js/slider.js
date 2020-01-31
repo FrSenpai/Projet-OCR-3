@@ -73,12 +73,12 @@ class Slider {
             // Si le timer est en route, le décrementer, sinon, ne rien faire
             if (this.etatSlider > 0) {
                 this.timer--;
-            } else {}
+            }
 
 
             if (this.timer === 0) {
                 this.imageSuivante();
-            } else {}
+            }
         }, 1000);
 
 
@@ -91,13 +91,10 @@ class Slider {
             return this.imagePrecedente();
         } else if (event.keyCode === 39) { // flèche droite
             return this.imageSuivante();
-        } else {
-            console.log("Touche non définie");
         }
     }
 
     pauseReprise() {
-        console.log("Click !")
         // Si le timer est en route, mise en pause lors du clic, sinon remise en route !
         if (this.etatSlider > 0) {
             this.etatSlider = 0;
