@@ -3,8 +3,6 @@ class Timer {
     secondes = 60;
     etatTimer = false;
 
-    constructor() {}
-
     timer() {
         // Si des données concernant une réservations sont présents, modifier les minutes & secondes selon celles-ci.
         if (sessionStorage.getItem("minutes") && sessionStorage.getItem("secondes")) {

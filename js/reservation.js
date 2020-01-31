@@ -21,7 +21,7 @@ class Reservation {
 
     initEvent() {
         // Afficher la div du temps restant uniquement quand chargement ok
-        window.addEventListener("load", (e) => {
+        window.addEventListener("load", () => {
             if (sessionStorage.getItem("minutes") && sessionStorage.getItem("secondes")) { // Si une réservation est déjà en cours, relance le timer.
                 timer.etatTimer = true;
                 timer.timer();
@@ -31,9 +31,9 @@ class Reservation {
         })
 
         // Gestion des interactions de l'utilisateur.
-        this.prenomElt.addEventListener("click", (e) => this.informationsConnu());
+        this.prenomElt.addEventListener("click", () => this.informationsConnu());
 
-        this.boutonPanelReservationElt.addEventListener("click", (e) => {
+        this.boutonPanelReservationElt.addEventListener("click", () => {
             this.verifierInformations();
             // Si input prénom & nom sont corrects, alors envoyer les données, sinon "" "" ""
             if (this.prenomOk === 1 && this.nomOk === 1) {
@@ -44,7 +44,7 @@ class Reservation {
             }
         })
 
-        this.boutonPanelCanvasElt.addEventListener("click", (e) => {
+        this.boutonPanelCanvasElt.addEventListener("click", () => {
             if (canvas.signatureOK === true) {
                 timer.etatTimer = true;
                 timer.timer();
@@ -58,7 +58,7 @@ class Reservation {
             }
         })
         // annuler une réservation
-        this.annulerReservationElt.addEventListener("click", (e) => {
+        this.annulerReservationElt.addEventListener("click", () => {
             timer.stopTimer();
         })
     }
