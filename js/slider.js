@@ -3,8 +3,6 @@ class Slider {
     imgActuelle = 0; // L'image actuelle affichée sur le slider, par défault = 0
     etatSlider = 1; // 1 = En route, 0 = En pause
 
-    // TO DO : Rajouter Elt sur les variables qui concernent des élements du DOM
-
     constructor() {
 
         // Variables DOM
@@ -16,10 +14,10 @@ class Slider {
         this.navigateur = window;
         // Autre
         this.timerImage();
-        this.flecheGaucheElt.addEventListener("click", (e) => this.imagePrecedente());
-        this.flecheDroiteElt.addEventListener("click", (e) => this.imageSuivante());
-        this.buttonPauseElt.addEventListener("click", (e) => this.pauseReprise());
-        this.navigateur.addEventListener("keydown", (e) => this.gestionTouche());
+        this.flecheGaucheElt.addEventListener("click", () => this.imagePrecedente());
+        this.flecheDroiteElt.addEventListener("click", () => this.imageSuivante());
+        this.buttonPauseElt.addEventListener("click", () => this.pauseReprise());
+        this.navigateur.addEventListener("keydown", () => this.gestionTouche());
     }
 
     imagePrecedente() {
@@ -29,15 +27,7 @@ class Slider {
         } else {
             this.imgActuelle--;
         }
-        this.imageElt.src = `../media/sliderbackground-${this.imgActuelle}.jpg`;
-        this.timer = 5;
-        if (this.imgActuelle === 0) {
-            this.descriptionSliderElt.textContent = `Première étape : Cliquez sur la station de votre choix !`;
-        } else if (this.imgActuelle === 1) {
-            this.descriptionSliderElt.textContent = `Deuxième étape : Remplissez le formulaire de réservation`;
-        } else if (this.imgActuelle === -1) {
-            this.descriptionSliderElt.textContent = `Dernière étape : Signez et finalisez votre réservation !`;
-        }
+        this.definirImage();
     }
 
     imageSuivante() {
@@ -47,6 +37,11 @@ class Slider {
         } else {
             this.imgActuelle++;
         }
+        this.definirImage();
+    }
+
+    definirImage() {
+        // Définie l'image et reset le timer.
         this.imageElt.src = `../media/sliderbackground-${this.imgActuelle}.jpg`;
         this.timer = 5;
         if (this.imgActuelle === 0) {
