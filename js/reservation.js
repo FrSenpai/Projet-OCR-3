@@ -1,5 +1,4 @@
 class Reservation {
-
     // Variables DOM
     prenomElt = document.getElementById("prenom");
     nomElt = document.getElementById("nom");
@@ -18,25 +17,23 @@ class Reservation {
 
     constructor() {
         this.initEvent();
-        
     }
 
     initEvent() {
-        // Afficher la div uniquement quand chargement ok
-        window.addEventListener("load", (e) => {
+        // Afficher la div du temps restant uniquement quand chargement ok
+        window.addEventListener("load", () => {
             if (sessionStorage.getItem("minutes") && sessionStorage.getItem("secondes")) { // Si une réservation est déjà en cours, relance le timer.
-                console.log("Reservation en cache !")
                 timer.etatTimer = true;
                 timer.timer();
             } else {
                 timer.etatTimer = false;
             }
         })
-        
-        // Gestion des interactions de l'utilisateur.
-        this.prenomElt.addEventListener("click", (e) => this.informationsConnu());
 
-        this.boutonPanelReservationElt.addEventListener("click", (e) => {
+        // Gestion des interactions de l'utilisateur.
+        this.prenomElt.addEventListener("click", () => this.informationsConnu());
+
+        this.boutonPanelReservationElt.addEventListener("click", () => {
             this.verifierInformations();
             // Si input prénom & nom sont corrects, alors envoyer les données, sinon "" "" ""
             if (this.prenomOk === 1 && this.nomOk === 1) {
@@ -44,12 +41,10 @@ class Reservation {
                 localStorage.setItem("nom", this.nomUtilisateur);
                 this.panelReservationElt.style.display = "None";
                 this.panelCanvasElt.style.display = "flex";
-            } else {
-                // Afficher un message d'informations
             }
         })
 
-        this.boutonPanelCanvasElt.addEventListener("click", (e) => {
+        this.boutonPanelCanvasElt.addEventListener("click", () => {
             if (canvas.signatureOK === true) {
                 timer.etatTimer = true;
                 timer.timer();
@@ -57,21 +52,19 @@ class Reservation {
                 this.panelCanvasElt.style.display = "none";
                 document.getElementById("signatureInvalide").style.visibility = "hidden";
                 canvas.signatureOK = false;
-                console.log(timer.minutes, timer.secondes);
                 this.tempsRestantElt.textContent = `Votre reservation expire dans 20 minutes !`;
             } else {
                 document.getElementById("signatureInvalide").style.visibility = "visible";
             }
-
         })
-            // annuler une réservation
-        this.annulerReservationElt.addEventListener("click", (e) => {
+        // annuler une réservation
+        this.annulerReservationElt.addEventListener("click", () => {
             timer.stopTimer();
         })
     }
-    
-    
-    
+
+
+
     informationsConnu() {
         // Si un prénom ou un nom ont été déjà envoyé, les inputs les prennent comme valeur
         if (localStorage.getItem("nom")) {
@@ -83,27 +76,21 @@ class Reservation {
     }
 
     verifierInformations() {
-        const regex = /[a-z]/;
-        // Limite de caractères
-
+        const regex = /[a-zA-ZÀ-ÿ-]+/;
         // Si le prénom est syntaxiquement correct alors
         if (!regex.test(this.prenomElt.value)) {
-            console.log("Prénom PAS ok !");
             this.prenomOk = 0;
             document.getElementById("prenomRequis").style.visibility = "visible";
         } else { // To-do : Affichage d'un message de prévention en cas d'erreur dans le prénom
-            console.log("Prénom ok !");
             this.prenomUtilisateur = this.prenomElt.value;
             this.prenomOk = 1;
             document.getElementById("prenomRequis").style.visibility = "hidden";
         }
         // Si le nom est syntaxiquement correct alors
         if (!regex.test(this.nomElt.value)) {
-            console.log("Nom PAS ok !");
             this.nomOk = 0 // Nom incorrect !
             document.getElementById("nomRequis").style.visibility = "visible";
         } else {
-            console.log("Nom Ok !");
             this.nomUtilisateur = this.nomElt.value;
             this.nomOk = 1; // Nom ok !
             document.getElementById("nomRequis").style.visibility = "hidden";
