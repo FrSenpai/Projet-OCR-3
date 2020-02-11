@@ -76,6 +76,10 @@ class Map {
             this.iconeMap.addEventListener(`click`,  (e) => {
                 if (timer.etatTimer === true) {
                     alert("Vous devez d'abord annuler votre réservation en cours avant d'en refaire une autre.");
+                } else if (station.available_bikes ===  0) {
+                    alert("Cette station ne possède plus de vélo disponible.");
+                } else if (station.status === "CLOSED") {
+                    alert("Cette station est actuellement fermée.");
                 } else if (reservation.panelCanvasElt.style.display === "flex") {
                     reservation.panelCanvasElt.style.display = "none";
                     this.reservationElt.style.display = "flex";
@@ -87,7 +91,9 @@ class Map {
                     } 
                 this.reservationElt.style.display = "flex";
                 adresseElt.textContent = `Adresse : ${station.address}`;
-                etatStationElt.textContent = `Etat : ${station.status}`;
+                if (station.status === "OPEN") {
+                    etatStationElt.textContent = `Etat : Ouvert !`;
+                } 
                 veloDispoElt.textContent = `Vélo(s) disponible(s) : ${station.available_bikes}`; 
                 placeDispoElt.textContent = `Place(s) disponible(s) : ${station.available_bike_stands}`;
                 }
